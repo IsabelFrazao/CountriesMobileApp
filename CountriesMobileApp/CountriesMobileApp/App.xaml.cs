@@ -1,3 +1,4 @@
+using CountriesMobileApp.Services;
 using CountriesMobileApp.ViewModels;
 using CountriesMobileApp.Views;
 using Prism;
@@ -19,15 +20,17 @@ namespace CountriesMobileApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/CountriesPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
-
+            //containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            //containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
+            //containerRegistry.RegisterForNavigation<CountryDetailPage, CountryDetailPageViewModel>();
         }
     }
 }
