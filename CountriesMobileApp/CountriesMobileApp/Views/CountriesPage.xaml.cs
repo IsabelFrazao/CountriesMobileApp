@@ -6,7 +6,7 @@ namespace CountriesMobileApp.Views
     {
         public CountriesPage()
         {
-            //BackgroundImageSource = "Resources/world_color.jpg";
+            //BackgroundImageSource = "Resources/outline_map_grey2.jpg";
             InitializeComponent();            
         }
     }

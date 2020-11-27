@@ -4,9 +4,22 @@
              xmlns:ffimaeloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="CountriesMobileApp.Views.CountriesPage">
     <ContentPage.Content>
-        
-        <StackLayout>
-            <SearchBar Placeholder="SearchCountry"
+        <RelativeLayout>
+            <Image Source="Resources/outline_map_grey2.jpg" Opacity="0.3"
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                
+                
+                
+
+                <StackLayout>
+            <SearchBar Placeholder="Search Country"
                 SearchCommand="{Binding SearchCommand}"
                 Text="{Binding Search}"/>
             <CollectionView ItemsSource="{Binding Countries}">
@@ -15,7 +28,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid RowSpacing="10">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SelectProductCommand}"/>
                             </Grid.GestureRecognizers>
@@ -31,7 +44,7 @@
                                 <Label Text="{Binding Name}" 
                                    FontAttributes="Bold"
                                    FontSize="Medium"
-                                   LineBreakMode="TailTruncation" />                                
+                                   LineBreakMode="MiddleTruncation" />                                
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
@@ -39,5 +52,7 @@
             </CollectionView>
             
         </StackLayout>
+            </Grid>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
