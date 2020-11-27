@@ -32,7 +32,7 @@
                         <Label Text="{Binding Country.Name, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
 
@@ -47,7 +47,7 @@
                         <Label Text="{Binding Country.Capital, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
                     
                     <StackLayout Grid.Row="7" Grid.Column="0">
@@ -61,7 +61,7 @@
                         <Label Text="{Binding Country.Region, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
                     <StackLayout Grid.Row="9" Grid.Column="0">
@@ -75,7 +75,7 @@
                         <Label Text="{Binding Country.Subregion, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
                     <StackLayout Grid.Row="11" Grid.Column="0">
@@ -89,7 +89,7 @@
                         <Label Text="{Binding Country.Population, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
                     <StackLayout Grid.Row="13" Grid.Column="0">
@@ -103,7 +103,7 @@
                         <Label Text="{Binding Country.Area, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
                     <StackLayout Grid.Row="15" Grid.Column="0">
@@ -117,7 +117,7 @@
                         <Label Text="{Binding Country.Gini, TargetNullValue='N/A'}"                                    
                                    FontSize="Medium"
                            HorizontalOptions="CenterAndExpand"
-                                   LineBreakMode="MiddleTruncation" />
+                                   LineBreakMode="WordWrap" />
                     </StackLayout>
 
                             <!--LANGUAGES-->
@@ -146,15 +146,14 @@
 
                     <StackLayout>
                     <ffimaeloadingsvg:SvgCachedImage 
-                                                    Aspect="AspectFill"
+                                                    Aspect="AspectFit"
                                                     Source="{Binding Country.Flag}" 
                                                     CacheDuration= "50"
                                                     Margin="5"
                                                     RetryCount= "3"
                                                     RetryDelay= "600"
                                                     HeightRequest="200"
-                                                    WidthRequest="400"
-                                                    HorizontalOptions="FillAndExpand"/>
+                                                    WidthRequest="400"/>
                 </StackLayout>
             </Grid>
             </StackLayout>
