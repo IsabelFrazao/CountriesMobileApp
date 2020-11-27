@@ -1,12 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CountriesMobileApp.Views.CountryDetailPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+             x:Class="CountriesMobileApp.Views.CountryDetailPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimaeloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" ios:Page.UseSafeArea="true"   
+              xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
+             xmlns:local="clr-namespace:CountriesMobileApp.ViewModels">
+    <ContentPage.Content >
+        <ScrollView>
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                
+            <Grid HorizontalOptions="CenterAndExpand">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="6" Grid.Column="0">
+                        <Label Text="Name:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="7" Grid.Column="0">
+                        <Label Text="{Binding Country.Name, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="8" Grid.Column="0">
+                        <Label Text="Capital:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="9" Grid.Column="0">
+                        <Label Text="{Binding Country.Capital, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="10" Grid.Column="0">
+                        <Label Text="Region:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="11" Grid.Column="0">
+                        <Label Text="{Binding Country.Region, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="12" Grid.Column="0">
+                        <Label Text="SubRegion:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="13" Grid.Column="0">
+                        <Label Text="{Binding Country.Subregion, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="14" Grid.Column="0">
+                        <Label Text="Population:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="15" Grid.Column="0">
+                        <Label Text="{Binding Country.Population, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="16" Grid.Column="0">
+                        <Label Text="Area:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="17" Grid.Column="0">
+                        <Label Text="{Binding Country.Area, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="18" Grid.Column="0">
+                        <Label Text="Gini:"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="19" Grid.Column="0">
+                        <Label Text="{Binding Country.Gini, TargetNullValue='N/A'}"                                    
+                                   FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"
+                                   LineBreakMode="TailTruncation" />
+                    </StackLayout>
+
+                <StackLayout>
+                    <ffimaeloadingsvg:SvgCachedImage 
+                                                    Aspect="AspectFill"
+                                                    Source="{Binding Country.Flag}" 
+                                                    CacheDuration= "50"
+                                                    Margin="5"
+                                                    RetryCount= "3"
+                                                    RetryDelay= "600"
+                                                    HeightRequest="200"
+                                                    WidthRequest="400"
+                                                    HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

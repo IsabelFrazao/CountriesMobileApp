@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CountriesMobileApp.Services
 {
-    public class ApiService
+    public class ApiService : IApiService
     {
         public async Task<Response> GetListAsync<T>(string urlBase, string servicePrefix, string controller)
         {
@@ -17,7 +18,6 @@ namespace CountriesMobileApp.Services
                 HttpClient client = new HttpClient
                 {
                     BaseAddress = new Uri(urlBase),
-
                 };
                 string url = $"{servicePrefix}{controller}";
 

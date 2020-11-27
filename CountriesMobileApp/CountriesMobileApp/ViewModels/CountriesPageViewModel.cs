@@ -1,12 +1,16 @@
 ﻿using CountriesMobileApp.Common.Entities;
+using CountriesMobileApp.Entities;
 using CountriesMobileApp.ItemViewModels;
 using CountriesMobileApp.Responses;
 using CountriesMobileApp.Services;
 using Prism.Commands;
 using Prism.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace CountriesMobileApp.ViewModels
@@ -30,7 +34,6 @@ namespace CountriesMobileApp.ViewModels
             _apiService = apiService;
             Title = "Country";
             LoadCountriesAsync();
-
         }
 
         public DelegateCommand SearchCommand => _searchCommand ?? (_searchCommand = new DelegateCommand(ShowCountries));
@@ -61,7 +64,7 @@ namespace CountriesMobileApp.ViewModels
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Erro", "Connection Error", "Accept");
+                await App.Current.MainPage.DisplayAlert("Error", "Connection Error", "Accept");
                 return;
             }
 
@@ -81,7 +84,7 @@ namespace CountriesMobileApp.ViewModels
                 return;
             }
 
-            _myCountries = (List<Country>)response.Result;
+            _myCountries = (List<Country>)response.Result;           
             ShowCountries();
         }
 
@@ -92,14 +95,15 @@ namespace CountriesMobileApp.ViewModels
                 Countries = new ObservableCollection<CountryItemViewModel>(_myCountries.Select(c =>
                 new CountryItemViewModel(_navigationService)
                 {
-                    Name = c.Name,
-                    Capital = c.Capital,
-                    Region = c.Region,
-                    Subregion = c.Subregion,
-                    Gini = c.Gini,
+                    Name = !string.IsNullOrEmpty(c.Name) ? c.Name : "N/A",
+                    Capital = !string.IsNullOrEmpty(c.Capital) ? c.Capital : "N/A",
+                    Region = !string.IsNullOrEmpty(c.Region) ? c.Region : "N/A",
+                    Subregion = !string.IsNullOrEmpty(c.Subregion) ? c.Subregion : "N/A",
+                    Gini = !string.IsNullOrEmpty(c.Gini) ? c.Gini : "N/A",
                     Area = c.Area,
                     Population = c.Population,
-                    Flag = c.Flag
+                    Flag = c.Flag,
+                    Languages = c.Languages,
                 })
                     .ToList());
             }
@@ -108,18 +112,19 @@ namespace CountriesMobileApp.ViewModels
                 Countries = new ObservableCollection<CountryItemViewModel>(_myCountries.Select(c =>
                  new CountryItemViewModel(_navigationService)
                  {
-                     Name = c.Name,
-                     Capital = c.Capital,
-                     Region = c.Region,
-                     Subregion = c.Subregion,
-                     Gini = c.Gini,
+                     Name = !string.IsNullOrEmpty(c.Name) ? c.Name : "N/A",
+                     Capital = !string.IsNullOrEmpty(c.Capital) ? c.Capital : "N/A",
+                     Region = !string.IsNullOrEmpty(c.Region) ? c.Region : "N/A",
+                     Subregion = !string.IsNullOrEmpty(c.Subregion) ? c.Subregion : "N/A",
+                     Gini = !string.IsNullOrEmpty(c.Gini) ? c.Gini : "N/A",
                      Area = c.Area,
                      Population = c.Population,
-                     Flag = c.Flag
+                     Flag = c.Flag,
+                     Languages = c.Languages,
                  })
                     .Where(p => p.Name.ToLower().Contains(Search.ToLower()))
                     .ToList());
             }
-        }
+        }    
     }
 }

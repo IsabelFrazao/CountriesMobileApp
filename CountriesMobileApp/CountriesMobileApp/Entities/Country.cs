@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CountriesMobileApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,8 +27,7 @@ namespace CountriesMobileApp.Common.Entities
 
         public string Gini { get; set; }
 
-        //public List<string> Borders { get; set; }
-
+        public List<Language> Languages { get; set; }
 
         public string Flag { get; set; }
     }
